@@ -1,0 +1,8 @@
+# nodejs #
+# Dependency directories
+node_modules/
+
+
+# django #
+# compiled python
+__pycache__/
