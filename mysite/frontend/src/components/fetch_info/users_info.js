@@ -11,6 +11,7 @@ class Users_info extends Component {
 		};
 	}
 	
+	// before rendering requesting for DATA in json format
 	componentDidMount() {
 		fetch("bounty/api/users")
 			.then(response => {

@@ -11,6 +11,7 @@ class Scores_info extends Component {
 		};
 	}
 	
+	// before rendering requesting for DATA in json format
 	componentDidMount() {
 		fetch("bounty/api/scores")
 			.then(response => {

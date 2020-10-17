@@ -11,6 +11,7 @@ class House_info extends Component {
 		};
 	}
 	
+	// before rendering requesting for DATA in json format
 	componentDidMount() {
 		fetch("bounty/api/house")
 			.then(response => {
