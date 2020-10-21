@@ -5,9 +5,10 @@ class houseSerializer(serializers.ModelSerializer):
     class Meta:
         model = house
         fields = ('id', 'name')
-
+		
 class usersSerializer(serializers.ModelSerializer):
-	house = serializers.CharField(source='house.name')
+	#house = serializers.PrimaryKeyRelatedField(null=True, source='house')
+	#house = serializers.CharField(source='house.name')
 	
 	class Meta:
 		model = users

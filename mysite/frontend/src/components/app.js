@@ -5,6 +5,8 @@ import Scores_info from "./fetch_info/scores_info";
 import House_info from "./fetch_info/house_info";
 import Users_info from "./fetch_info/users_info";
 
+import Input from "./input/input.js"
+
 class App extends Component {
 	render() {
 		return (
@@ -23,6 +25,8 @@ class App extends Component {
 					Users information
 				</h1>
 				<Users_info />
+				
+				<Input />
 			</div>
 		);
 	}

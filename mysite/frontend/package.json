@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.20.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
