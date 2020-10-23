@@ -1,33 +1,25 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import {Route, NavLink, HashRouter} from "react-router-dom";
 
-import Scores_info from "./fetch_info/scores_info";
-import House_info from "./fetch_info/house_info";
-import Users_info from "./fetch_info/users_info";
-
-import Input from "./input/input.js"
+import Fetch_data from "./fetch_info/fetch_data";
+import Input from "./input/input.js";
 
 class App extends Component {
 	render() {
 		return (
-			<div>
-				<h1>
-					Scores information
-				</h1>
-				<Scores_info />
-				
-				<h1>
-					House information
-				</h1>
-				<House_info />
-				
-				<h1>
-					Users information
-				</h1>
-				<Users_info />
-				
-				<Input />
-			</div>
+			<HashRouter>
+				<div>
+					<ul className="paths">
+						<li><NavLink to="/register">register</NavLink></li>
+						<li><NavLink to="/info">my information</NavLink></li>
+					</ul>
+					<div className="content">
+						<Route path="/register" component={Input} />
+						<Route path="/info" component={Fetch_data}  />
+					</div>
+				</div>
+			</HashRouter>
 		);
 	}
 }

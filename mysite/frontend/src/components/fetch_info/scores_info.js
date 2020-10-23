@@ -50,3 +50,4 @@ class Scores_info extends Component {
 }
 
 export default Scores_info;
+
