@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import axios from "axios";
 
-class Input extends Component {
+class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {	username : '',
 						password : ''
 					};
 		this.handleInput = this.handleInput.bind(this);
-		this.register = this.register.bind(this);
+		this.login = this.login.bind(this);
 		
 		// set to automatically use django token
 		axios.defaults.xsrfCookieName = 'csrftoken';
@@ -26,9 +26,15 @@ class Input extends Component {
 		console.log(this.state);
 	}
 	
-	register(event) {
-		// send data to server here
-		return axios.post('http://127.0.0.1:8000/bounty/user/', this.state)
+	// send data to server here
+	login(event) {
+		// put data in form so data appear in POST
+		var form_data = new FormData();
+		for(var key in this.state){
+			form_data.append(key, this.state[key]);
+		}
+		
+		return axios.post('http://127.0.0.1:8000/bounty/login/', form_data)
 		.then(res => console.log(res))
 		.catch(err => console.error(err));
 	}
@@ -53,16 +59,16 @@ class Input extends Component {
 				/>
 				
 				<h5>
-					{this.state.username}
+					{this.state.user}
 				</h5>
 				
-				<button onClick={this.register}>
-					register
+				<button onClick={this.login}>
+					login
 				</button>
 			</label>
 		)
 	}
 }
 
-export default Input;
+export default Login;
 
