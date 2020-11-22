@@ -5,23 +5,19 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-
+import scrap_wiki.py
 
 class houseListCreate(generics.ListCreateAPIView):
     queryset = house.objects.all()
     serializer_class = houseSerializer
 
-class usersListCreate(generics.ListCreateAPIView):
-    queryset = users.objects.all()
-    serializer_class = usersSerializer
+class code_ninjaListCreate(generics.ListCreateAPIView):
+    queryset = code_ninja.objects.all()
+    serializer_class = code_ninjaSerializer
 
-class scoresListCreate(generics.ListCreateAPIView):
-    queryset = scores.objects.all()
-    serializer_class = scoresSerializer
-
-class code_warsListCreate(generics.ListCreateAPIView):
-    queryset = code_wars.objects.all()
-    serializer_class = code_warsSerializer
+class scoreListCreate(generics.ListCreateAPIView):
+    queryset = score.objects.all()
+    serializer_class = scoreSerializer
 
 class challengesListCreate(generics.ListCreateAPIView):
     queryset = challenges.objects.all()
@@ -46,6 +42,8 @@ def log_in_view(request):
 		log_in = "NO"
 	
 	return JsonResponse({"login": log_in})
+
+
 
 
 

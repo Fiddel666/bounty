@@ -7,13 +7,13 @@ class houseSerializer(serializers.ModelSerializer):
         model = house
         fields = ('id', 'name')
 		
-class usersSerializer(serializers.ModelSerializer):
+class code_ninjaSerializer(serializers.ModelSerializer):
 	#house = serializers.PrimaryKeyRelatedField(null=True, source='house')
 	#house = serializers.CharField(source='house.name')
 	
 	class Meta:
-		model = users
-		fields = ('id', 'user', 'level', 'belt', 'status', 'warning', 'house')
+		model = code_ninja
+		fields = ('id', 'userID', 'rank', 'belt', 'status', 'warning', 'house')
 
 class UserSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -25,18 +25,15 @@ class UserSerializer(serializers.ModelSerializer):
 		user = User.objects.create_user(**validated_data)
 		return user
 
-class scoresSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = scores
-        fields = ('id', 'topic', 'score')
-
-class code_warsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = code_wars
-        fields = ('id', 'kyu', 'color', 'top_precentage', 'place')
-
 class challengesSerializer(serializers.ModelSerializer):
     class Meta:
         model = challenges
-        fields = ('id', 'name', 'topic', 'mentor', 'description')
+        fields = ('id', 'name', 'points', 'category', 'mentor', 'description')
+
+class scoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = score
+        fields = ('id', 'userID', 'challengesID')
+
+
 
