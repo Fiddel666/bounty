@@ -1,3 +1,45 @@
 body {
-  background-color: powderblue;
+	background-color: powderblue;
+	margin: 0;
+	padding: 0;
 }
+
+.paths {
+	width: 100%;
+	background-color: black;
+	display: inline-block;
+	padding: 1.2em 0em 1.2em 0em;
+}
+
+.b {
+	float: right;
+	background-color: gray;
+	padding: 1.2em;
+	margin: 0em 0.3em 0em 0em;
+}
+
+div.paths div a.b {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.b:hover {
+	background-color: white;
+}
+
+.active {
+	background-color: red;
+}
+
+.logo {
+	background-image: url(./bounty_poster.jpg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding: 3em;
+}
+
+
+
+
+
+

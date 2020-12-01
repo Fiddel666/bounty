@@ -13,7 +13,7 @@ class code_ninjaSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = code_ninja
-		fields = ('id', 'userID', 'rank', 'belt', 'status', 'warning', 'house')
+		fields = ('id', 'userID', 'nick', 'rank', 'belt', 'status', 'warning', 'house')
 
 class UserSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -31,9 +31,12 @@ class challengesSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'points', 'category', 'mentor', 'description')
 
 class scoreSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = score
-        fields = ('id', 'userID', 'challengesID')
+	challenge = serializers.CharField(source='challengesID.name', read_only=True)
+	user = serializers.CharField(source='userID.nick', read_only=True)
+	
+	class Meta:
+		model = score
+		fields = ('id', 'user', 'challenge')
 
 
 

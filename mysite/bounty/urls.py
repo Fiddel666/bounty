@@ -14,4 +14,5 @@ urlpatterns = [
 	path('api/scores/', views.scoreListCreate.as_view() ),
 	path('api/challenges/', views.challengesListCreate.as_view() ),
 	path('login/', views.log_in_view ),
+	path('logout/', views.log_out_view ),
 ]

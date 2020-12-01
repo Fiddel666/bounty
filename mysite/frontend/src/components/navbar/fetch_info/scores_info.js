@@ -40,7 +40,7 @@ class Scores_info extends Component {
 				{this.state.data.map(score => {
 					return (
 						<li key={score.id}>
-							{score.topic} - {score.score}
+							{score.id} - {score.challenge} - {score.user}
 						</li>
 					);
 				})}
